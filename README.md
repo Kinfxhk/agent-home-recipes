@@ -1,5 +1,8 @@
 # agent-home-recipes
 
+
+**[☕ Buy Me a Coffee](https://buymeacoffee.com/kinfxhk)** · [GitHub Sponsors](https://github.com/sponsors/Kinfxhk)
+
 **狀態：M0 scaffold（配方／健康檢查／空 quota-router 契約）——不是生產完整產品。**
 
 KINFX 用的 **DSH 相容** agent home **profile 配方**：一鍵說明安裝、可逆卸載、健康檢查、空的額度路由設定骨架。  
