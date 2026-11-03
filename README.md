@@ -1,8 +1,8 @@
 # agent-home-recipes
 
-**狀態：M0 scaffold（配方／健康檢查／空 quota-router 契約）——唔係生產完整產品。**
+**狀態：M0 scaffold（配方／健康檢查／空 quota-router 契約）——不是生產完整產品。**
 
-KINFX 用嘅 **DSH 相容** agent home **profile 配方**：一鍵說明安裝、可逆卸載、健康檢查、空嘅額度路由設定骨架。  
+KINFX 用的 **DSH 相容** agent home **profile 配方**：一鍵說明安裝、可逆卸載、健康檢查、空的額度路由設定骨架。  
 公開名：`agent-home-recipes`（內部曾暫稱 kinfx-dsh-foundation／kinfx-harness-foundation）。  
 **同 DeepSeek、xAI 或其他 LLM 廠商無隸屬關係。** 技術段可寫「相容 DSH（DeepSeek Harness）」。
 
@@ -39,9 +39,9 @@ flowchart LR
 | Host | `@deepseek-ai/dsh@0.2.1-rc.5` | 釘 tip |
 | Soul | `dsh-soul-md` | 文件／人格 |
 | Resolve-wrap（**只一個**） | `@omdp/dsh-key-fallback` | 同 provider key 池 |
-| Model 降級 | `dsh-llm-fallbacks` | 唔取代 credentials 池 |
+| Model 降級 | `dsh-llm-fallbacks` | 不取代 credentials 池 |
 | Teams | `@nanmicoder/dsh-agent-teams` | activity 暫代 |
-| 可選替代 wrap | `@goodandready/dsh-key-rotation` | **代替** key-fallback，唔並裝 |
+| 可選替代 wrap | `@goodandready/dsh-key-rotation` | **代替** key-fallback，不並裝 |
 | 禁裝 | `dsh-subagent-progress`、`dsh-bridges` | 對 0.2.1-rc.5 不相容 |
 
 詳見 [`profiles/default/COMPATIBILITY.md`](profiles/default/COMPATIBILITY.md) · [`docs/boundaries.md`](docs/boundaries.md)
@@ -63,7 +63,7 @@ npm run install:profile -- --apply
 npm run healthcheck
 ```
 
-密鑰只放 `$DSH_HOME/.credentials.yaml` 或你自管 secret store。本庫只有空嘅 [`.env.example`](.env.example)。
+密鑰只放 `$DSH_HOME/.credentials.yaml` 或你自管 secret store。本庫只有空的 [`.env.example`](.env.example)。
 
 ### 卸載／還原
 
@@ -90,7 +90,7 @@ npm run healthcheck -- --dry   # 無 dsh 亦可
 
 ## 合規
 
-多帳／多 key 自動輪換可能受各供應商 ToS 限制。正式對外／長期使用前交法律顧問對官方 ToS **開頁**核實。本專案**唔**提供繞過步驟。
+多帳／多 key 自動輪換可能受各供應商 ToS 限制。正式對外／長期使用前交法律顧問對官方 ToS **開頁**核實。本專案**不**提供繞過步驟。
 
 若你配置多個 credential／帳號，須確保每一項均符合該供應商現行服務條款與使用政策（包括對多帳號、帳號共享、限流與計費之限制）；本專案**不**協助亦**不**建議以多帳號規避使用限制或計費義務。
 
