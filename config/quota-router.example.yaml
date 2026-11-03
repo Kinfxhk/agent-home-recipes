@@ -1,0 +1,41 @@
+# quota-router skeleton — M0 contract only (no rotation engine in this repo).
+# Put real keys in $DSH_HOME/.credentials.yaml or your secret store — never here.
+
+version: 0
+
+providers:
+  - id: example-primary
+    credentialRef: EXAMPLE_API_KEY   # name only; empty value in env
+    modelPin: null
+    enabled: true
+  # - id: example-secondary
+  #   credentialRef: EXAMPLE_API_KEY_2
+  #   modelPin: null
+  #   enabled: false
+
+triggers:
+  - code: QUOTA
+    action: next_key
+    notes: "Documented intent only; engine not shipped in M0."
+  - code: RATE_LIMIT
+    action: cooldown
+  - code: AUTH
+    action: next_key
+  - code: TIMEOUT
+    action: fallback_model
+  - code: SERVER_ERROR
+    action: fallback_model
+  - code: OTHER
+    action: abort
+
+cooldown:
+  defaultSeconds: 60
+  perProviderSeconds: {}
+
+modelPinGlobal: null
+
+notes: >
+  Pool keys = wrap credentials.resolve (default @omdp/dsh-key-fallback).
+  Model degrade = dsh-llm-fallbacks.
+  Retry = host dsh-llm-retry.
+  Multi-account / multi-key production use needs legal ToS review first.

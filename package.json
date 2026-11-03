@@ -1,0 +1,16 @@
+{
+  "name": "agent-home-recipes",
+  "version": "0.0.1",
+  "private": true,
+  "description": "KINFX M0 profile recipes for a DSH-compatible agent home (install, health-check, empty quota-router skeleton).",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "health": "node scripts/health-check.mjs",
+    "healthcheck": "node scripts/health-check.mjs",
+    "install:profile": "node scripts/install-profile.mjs",
+    "uninstall:profile": "node scripts/install-profile.mjs --uninstall"
+  }
+}

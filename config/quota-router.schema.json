@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kinfx.local/schemas/quota-router.schema.json",
+  "title": "quota-router skeleton (M0 — contract only, no engine)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "providers", "triggers", "cooldown"],
+  "properties": {
+    "version": { "type": "integer", "const": 0, "description": "Skeleton version; engine not implemented in M0." },
+    "providers": {
+      "type": "array",
+      "description": "Provider rows (ids + optional model pin). No API keys here.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "credentialRef": { "type": "string", "description": "POSIX env-style CredentialRef name only; value lives outside repo." },
+          "modelPin": { "type": ["string", "null"], "description": "Preferred model id for this provider row." },
+          "enabled": { "type": "boolean", "default": true }
+        }
+      }
+    },
+    "triggers": {
+      "type": "array",
+      "description": "Failure / quota codes that may eventually drive routing (documented only in M0).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "action"],
+        "properties": {
+          "code": { "type": "string", "enum": ["QUOTA", "RATE_LIMIT", "AUTH", "TIMEOUT", "SERVER_ERROR", "OTHER"] },
+          "action": { "type": "string", "enum": ["next_key", "next_provider", "fallback_model", "cooldown", "abort"] },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "cooldown": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["defaultSeconds"],
+      "properties": {
+        "defaultSeconds": { "type": "integer", "minimum": 0 },
+        "perProviderSeconds": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "modelPinGlobal": { "type": ["string", "null"] },
+    "notes": { "type": "string" }
+  }
+}

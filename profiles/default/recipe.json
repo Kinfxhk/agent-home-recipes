@@ -1,0 +1,27 @@
+{
+  "name": "agent-home-recipes/default",
+  "description": "M0 default web-profile recipe for DSH 0.2.1-rc.5",
+  "host": { "package": "@deepseek-ai/dsh", "version": "0.2.1-rc.5" },
+  "profile": "web",
+  "resolveWrap": {
+    "default": "@omdp/dsh-key-fallback",
+    "optionalAlternatives": [
+      {
+        "package": "@goodandready/dsh-key-rotation",
+        "note": "Install INSTEAD of key-fallback, never both (dual-wrap risk)."
+      }
+    ],
+    "policy": "exactly-one"
+  },
+  "plugins": [
+    { "package": "dsh-soul-md", "role": "soul-md", "required": true },
+    { "package": "@omdp/dsh-key-fallback", "role": "resolve-wrap", "required": true },
+    { "package": "dsh-llm-fallbacks", "role": "model-fallback", "required": true },
+    { "package": "@nanmicoder/dsh-agent-teams", "role": "teams", "required": true }
+  ],
+  "doNotInstall": [
+    { "package": "dsh-subagent-progress", "reason": "Incompatible with dsh 0.2.1-rc.5" },
+    { "package": "dsh-bridges", "reason": "Incompatible with dsh 0.2.1-rc.5" },
+    { "package": "@goodandready/dsh-key-rotation", "reason": "Optional alternative only; not co-installed with key-fallback" }
+  ]
+}
