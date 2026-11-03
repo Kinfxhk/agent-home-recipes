@@ -14,3 +14,5 @@
 ## Compliance
 
 Multi-account / multi-key rotation may be restricted by vendor ToS. Get legal review (open official ToS pages) before production. This project does **not** document bypass steps.
+
+If you configure multiple credentials/accounts, each must comply with that provider’s current Terms and AUP (including multi-account, account-sharing, rate-limit, and billing rules). This project does **not** help or recommend using multiple accounts to circumvent usage limits or billing obligations.

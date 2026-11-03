@@ -92,6 +92,10 @@ npm run healthcheck -- --dry   # 無 dsh 亦可
 
 多帳／多 key 自動輪換可能受各供應商 ToS 限制。正式對外／長期使用前交法律顧問對官方 ToS **開頁**核實。本專案**唔**提供繞過步驟。
 
+若你配置多個 credential／帳號，須確保每一項均符合該供應商現行服務條款與使用政策（包括對多帳號、帳號共享、限流與計費之限制）；本專案**不**協助亦**不**建議以多帳號規避使用限制或計費義務。
+
+*Not legal advice; users must comply with each provider’s Terms/AUP; no secrets in git. Multi-credential routing is only for credentials you are authorized to use; it is not a rate-limit or billing circumvention tool.*
+
 ## 授權
 
 MIT · Copyright (c) 2026 KINFX · 見 [LICENSE](LICENSE) / [NOTICE](NOTICE)
